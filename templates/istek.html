@@ -1,0 +1,135 @@
+{% extends "sablon.html" %} {% block icerik %}
+<!-- Sayfa içeriği -->
+
+<div class="container">
+  <h2 class="center">Film İstek Sayfası</h2>
+  <hr />
+  <form class="form-inline" action="/ekle" method="POST">
+    <div class="form-group mb-2">
+      <div class="input-field col s1">
+        <i class="material-icons prefix">local_movies</i>
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="filmad"
+          name="filmad"
+          placeholder="Film Adı"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <div class="input-field col s8">
+        <i class=" material-icons prefix">date_range</i>
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="filmk"
+          name="filmk"
+          placeholder="Film Yılı"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-group mb-2">
+      <div class="input-field col s8">
+        <i class=" material-icons prefix">photo_camera</i>
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="filmr"
+          name="filmr"
+          placeholder="Yüklemek istediğiniz filmin görsel URL'sini giriniz."
+          required
+        />
+      </div>
+    </div>
+    
+    <div class="container center">
+    <button type="submit" class="btn btn-primary">Ekle</button>
+  </form>
+  </div>
+  <br />
+  <br />
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+  <h2 class="center">Güncel İstekler</h2>
+  <input
+    class="w3-input w3-border w3-padding"
+    type="text"
+    placeholder="Aramak istediğiniz filmin adını giriniz! "
+    id="myInput"
+    onkeyup="myFunction()"
+  />
+  <table class="w3-table-all" id="myTable">
+    <thead>
+      <tr class="w3-light-grey w3-hover-red">
+        <th scope="col">Film Yılı</th>
+        <th scope="col">Film Adı</th>
+        <th scope="col">Sil</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for yap in yapilacaklar %}
+      <tr class="w3-hover-black">
+        <th scope="row">{{ yap.get('filmk') }}</th>
+        <td>
+          {{ yap.get('filmad') }}
+        </td>
+        <td>
+          <a href="/sil/{{ yap.get('_id') }}">
+            <i class="fa fa-fw fa-trash"></i>
+          </a>
+        </td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <br />
+  <br />
+  {% for yap in yapilacaklar %}
+  <div class="w3-card-4 w3-black">
+    <div class="w3-container w3-center">
+      <h3> {{ yap.get('filmad') }}</h3>
+      <br>
+      <img src="{{ yap.get('filmr') }}" alt="Avatar" style="width:50%">
+      <br>
+      <h4>{{ yap.get('filmk') }}</h4>
+      <a href="/sil/{{ yap.get('_id') }}">
+        <i class="material-icons">delete</i>
+      </a>
+    </div>  
+    </div>
+  <br>
+  <br>
+  <br>
+  {% endfor %}
+</div>
+</div>
+<script>
+  function myFunction() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
+
+{% endblock %}

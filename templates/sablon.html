@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <title>Film Öneri</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="static/css/materialize.min.css"
+      media="screen,projection"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper w3-pink" style="height :120%">
+        <a href="anasayfa.html" class="brand-logo center">Film Öneri Merkezi</a>
+        <ul class="left hide-on-med-and-down">
+          <li class="w3-button w3-pink w3-padding-small ">
+            <a href="/son"
+              >Son Eklenen Filmler<i class="material-icons right"
+                >play_for_work
+              </i></a
+            >
+          </li>
+          <li class="w3-button w3-pink w3-padding-small">
+            <a href="/eniyi"
+              >En İyi 5 <i class="material-icons right">looks_5 </i></a
+            >
+          </li>
+          <li>
+            <a class="w3-button w3-pink w3-padding-small" href="/istek" role="button">Film İstek<i class="material-icons right"
+              >play_for_work
+            </i></a>
+          </li>
+          <li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a class="btn btn-primary btn-lg" href="/giris" role="button">Giriş<i class="material-icons right"
+              >account_circle
+            </i></a>
+          </li>
+          <li>
+            <a class="btn btn-primary btn-lg" href="/kayit" role="button">Kayıt<i class="material-icons right"
+              >group_add
+            </i></a>
+          </li>
+          <li>
+            <a class="btn btn-primary btn-lg" href="/kapat" role="button">Çıkış<i class="material-icons right"
+              >exit_to_app
+            </i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br />
+<br />
+<br />
+<br />
+    {% block icerik %} {% endblock %}
+    <footer class="page-footer w3-pink">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h2 class="white-text">Bize Ulaşın</h3>
+            <h3>Önerileriniz için:</h3>
+            <h5>caglarkont@gmail.com</h5>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">İletişim</h5>
+            <ul>
+              <li>
+                <a class="grey-text text-lighten-3" href="https://www.instagram.com/caglarkont/">İnstagram</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Facebook</a>
+              </li>
+              <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2019 Copyright Text
+        </div>
+      </div>
+    </footer>
+
+      
+    </div>
+
+    <!-- JS -->
+    <script src="{{ url_for('static',filename='js/jquery-3.4.1.slim.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/popper.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/all.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+  </body>
+</html>
